@@ -13,8 +13,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-        [SerializeField] float m_WalkSpeed = 1f;
-        
+		[SerializeField] float m_WalkSpeed = 1f;
+
         private void Start()
         {
             // get the transform of the main camera
@@ -63,10 +63,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 // we use world-relative directions in the case of no main camera
                 m_Move = v*Vector3.forward + h*Vector3.right;
             }
-            m_Move *= m_WalkSpeed;
+			m_Move *= m_WalkSpeed;
 #if !MOBILE_INPUT
-            // walk speed multiplier
-            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 2f;
+			// walk speed multiplier
+	        if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 2f;
 #endif
 
             // pass all parameters to the character control script
